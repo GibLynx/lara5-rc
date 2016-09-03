@@ -4,6 +4,11 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use View;
+use Input;
+use Appliance;
+use Redirect;
+use Lang;
 
 class ApplianceController extends Controller {
 
@@ -24,7 +29,14 @@ class ApplianceController extends Controller {
 	 */
 	public function create()
 	{
+		$data['name'] = Input::get('name');
+		$saved = Appliance::saveAppliance($data);
 
+		if ($saved) {
+	 		return Redirect::to('/')->with('success', Lang::get('appliance.text_success_saved'));
+	 	} else {
+	 		return Redirect::to('/')->with('error', Lang::get('appliance.text_error_saved'));
+	 	}
 	}
 
 	/**
@@ -56,7 +68,15 @@ class ApplianceController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$data['id'] = $id;
+		$data['name'] = Input::get('name');
+		$edited = Appliance::editAppliance($data);
+
+		if ($edited) {
+	 		return Redirect::to('/')->with('success', Lang::get('appliance.text_success_saved'));
+	 	} else {
+	 		return Redirect::to('/')->with('error', Lang::get('appliance.text_error_saved'));
+	 	}
 	}
 
 	/**
@@ -81,4 +101,14 @@ class ApplianceController extends Controller {
 		//
 	}
 
+
+	public function addApplianceView () {
+		return View::make('add_appliance');
+	}
+
+	public function editApplianceView($id) {
+		$appliance = Appliance::getApplianceById($id)->toArray();
+		return View::make('edit_appliance')
+				->with('appliance', $appliance);
+	}
 }

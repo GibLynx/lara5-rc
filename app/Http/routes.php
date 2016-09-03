@@ -16,6 +16,8 @@ Route::get('/', function()
 	$appliancesDetails = array();
 	$appliancesDetails[0] = '-- Select --';
 	$appliances = Appliance::getApplianceDetails();
+
+	// for select options
 	foreach ($appliances as $key => $value) {
 		$appliancesDetails[$appliances[$key]->id] = $appliances[$key]->name;
 	}
@@ -23,9 +25,14 @@ Route::get('/', function()
 	$schedule = Schedule::getSchedule();
 
 	return View::make('index')
-			->with('appliances', $appliancesDetails)
+			->with('appliancesSelection', $appliancesDetails) // for select options
+			->with('appliances', $appliances)
 			->with('schedule', $schedule);
 });
 Route::post('/save/timer', 'TimerController@store');
 Route::post('/save/remote', 'RemoteController@store');
 Route::get('/delete/schedule/{id}', 'TimerController@destroy');
+Route::get('/add/appliance', 'ApplianceController@addApplianceView');
+Route::post('/add/appliance', 'ApplianceController@create');
+Route::get('/edit/appliance/{id}', 'ApplianceController@editApplianceView');
+Route::post('/edit/appliance/{id}', 'ApplianceController@edit');

@@ -15,7 +15,7 @@
         <div class="form-group ">
           <label for="appliances">Appliances</label>
           {!! Form::select('appliance',
-             $appliances,
+             $appliancesSelection,
              0,
              ['class' => 'form-control']
           ) !!}
@@ -129,7 +129,7 @@
           ) !!}
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-default">Submit</button>
+        {!! Form::submit('Submit', array('class' => 'btn btn-default')) !!}
         </div>
       </form>
     {!! Form::close() !!}
@@ -141,7 +141,7 @@
         <div class="form-group ">
           <label for="appliances">Appliances</label>
            {!! Form::select('appliance',
-             $appliances,
+             $appliancesSelection,
              0,
              ['class' => 'form-control']
           ) !!}
@@ -187,10 +187,15 @@
     <table class = "table">
         <th>Name</th>
         <th>Action</th>
-        <tr>
-        <td></td>
-        <td></td>
-        </tr>
+        @foreach($appliances as $key => $value)
+            <tr>
+                <td>{!!$appliances[$key]->name!!}</td>
+                <td>
+                <a href="./edit/appliance/{!!$appliances[$key]->id!!}">edit</a>
+                <a href="./delete/appliance/{!!$appliances[$key]->id!!}">delete</a>
+                </td>
+            </tr>
+        @endforeach
     </table>
 </div>
 

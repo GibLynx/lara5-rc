@@ -20,8 +20,30 @@ class Appliance extends Eloquent {
         return $results;
     }
 
-    public static function saveAppliance () {
+    public static function saveAppliance ($data) {
+    	$saved = DB::table('appliance')->insert(
+		    [
+            'name' => $data['name'],
+		    ]
+		);
+		if ($saved) return true;
 
+    	return false;
+    }
+
+    public static function getApplianceById($id) {
+    	$results = Appliance::find($id);
+        return $results;
+    }
+
+    public static function editAppliance($data) {
+    	$saved = DB::table('appliance')
+    			->where('id', $data['id'])
+    			->update(['name' => $data['name']]);
+
+    	if ($saved) return true;
+
+    	return false;
     }
 }
 ?>
