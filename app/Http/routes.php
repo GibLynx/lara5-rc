@@ -29,7 +29,3 @@ Route::get('/', function()
 Route::post('/save/timer', 'TimerController@store');
 Route::post('/save/remote', 'RemoteController@store');
 Route::get('/delete/schedule/{id}', 'TimerController@destroy');
-
-//URLs
-///rooms - sends JSON for list of rooms
-///report/{room no} - sends JSON of electric consumption of room equipment

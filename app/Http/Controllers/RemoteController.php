@@ -1,4 +1,8 @@
 <?php
+namespace App\Http\Controllers;
+use Input;
+use Config;
+use Redirect;
 
 class RemoteController extends Controller {
 

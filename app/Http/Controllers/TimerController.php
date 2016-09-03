@@ -1,4 +1,9 @@
 <?php
+namespace App\Http\Controllers;
+use Input;
+use Schedule;
+use Redirect;
+use Lang;
 
 class TimerController extends Controller {
 
