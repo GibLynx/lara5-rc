@@ -2,6 +2,7 @@
 
 @section('content')
 <ul class="tab">
+    <li><a href="#" class="tablinks" onclick="openTab(event, 'Appliance')"><b>Appliances</b></a></li>
     <li><a href="#" class="tablinks" onclick="openTab(event, 'Timer')"><b>Timer</b></a></li>
     <li><a href="#" class="tablinks" onclick="openTab(event, 'RemoteControl')"><b>Remote Control</b></a></li>
     <li><a href="#" class="tablinks" onclick="openTab(event, 'Schedule')"><b>Schedule</b></a></li>
@@ -178,6 +179,18 @@
         </tr>
 
         @endforeach
+    </table>
+</div>
+
+<div id="Appliance" class="tabcontent">
+    <div><a href="./add/appliance">add new appliance</a></div>
+    <table class = "table">
+        <th>Name</th>
+        <th>Action</th>
+        <tr>
+        <td></td>
+        <td></td>
+        </tr>
     </table>
 </div>
 

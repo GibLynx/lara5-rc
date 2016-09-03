@@ -16,13 +16,12 @@ class Schedule extends Eloquent {
 	| Get Appliances
     */
     public static function saveToSchedule ($data) {
-        // print "switch - ".$data['switch'];
-        // exit;
+
     	$saved = DB::table('schedule')->insert(
 		    [
             'appliance_id' => $data['appliance'],
 		     'when' => $data['datetime'],
-		     'action' => 0
+		     'action' => $data['switch']
             ]
 		);
 		if ($saved) return true;

@@ -19,5 +19,9 @@ class Appliance extends Eloquent {
      	$results = Appliance::get(['id','name']);
         return $results;
     }
+
+    public static function saveAppliance () {
+
+    }
 }
 ?>
