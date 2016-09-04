@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use Input;
 use Config;
 use Redirect;
-
+use Lang;
 class RemoteController extends Controller {
 
 	/**
