@@ -2,10 +2,10 @@
 
 @section('content')
 <ul class="tab">
-    <li><a href="#" class="tablinks" onclick="openTab(event, 'Appliance')"><b>Appliances</b></a></li>
-    <li><a href="#" class="tablinks" onclick="openTab(event, 'Timer')"><b>Timer</b></a></li>
+    <!--<li><a href="#" class="tablinks" onclick="openTab(event, 'Appliance')"><b>Appliances</b></a></li>
+    <li><a href="#" class="tablinks" onclick="openTab(event, 'Timer')"><b>Timer</b></a></li>-->
     <li><a href="#" class="tablinks" onclick="openTab(event, 'RemoteControl')"><b>Remote Control</b></a></li>
-    <li><a href="#" class="tablinks" onclick="openTab(event, 'Schedule')"><b>Schedule</b></a></li>
+    <!--<li><a href="#" class="tablinks" onclick="openTab(event, 'Schedule')"><b>Schedule</b></a></li>-->
 </ul>
 
 <div id="Timer" class="tabcontent">
